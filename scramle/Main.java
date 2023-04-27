@@ -2,20 +2,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Main2 {
+public class Main {
 
     public static void main(String[] args) {
 
         char[][][] cube = new char[6][3][3];
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    cube[i][j][k] = 'X';
-                }
-            }
-        }
-
+        
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++)
                 cube[0][i][j] = 'O';
@@ -208,7 +201,6 @@ public class Main2 {
     private static char[][][] turnDown(char[][][] cube, int layer) {
 
         char[][][] temp = cube.clone();
-        // alun perin char[] first = Arrays.copyOf(cube[3][0], cube[3][0].length);
         char[] first = Arrays.copyOf(cube[3][layer], cube[3][layer].length);
 
         for (int i = 3; i > 0; i--) {
@@ -224,12 +216,7 @@ public class Main2 {
         return temp;
     }
 
-    // Siirtoihin R ja L'
-    // Tämä on monimutkaisempi kuin horisontaalinen koska ei voida iteroiden siirtää
-    // seuraavalle
-    // sivulle koska sivut eivät mene enää järjestyksessä ylä- ja alasivuille.
-    // Myöskään siirrettävät värit eivät ole samalla rivillä vaan eri riveillä n:s
-    // elementti
+
     /*
      * For moves R (2) and L' (0)
      * This is and the next ones are more complicated than methods turning in horizontal direction (turnUp and turnDown)
